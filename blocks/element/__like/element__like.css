@@ -1,0 +1,17 @@
+.element__like {
+  background: url(../../../images/heart.png) transparent no-repeat;
+  background-size: cover;
+  width: 22px;
+  height: 19px;
+  margin: 0 20px 0 0;
+  border: none;
+  cursor: pointer;
+}
+
+.element__like:hover {
+  opacity: .5;
+}
+
+.element__like:active {
+  background: url(../../../images/heart_active.png) transparent no-repeat;
+}
