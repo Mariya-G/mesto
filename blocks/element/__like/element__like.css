@@ -1,5 +1,5 @@
 .element__like {
-  background: url(../../../images/heart.png) transparent no-repeat;
+  background: url(../../../images/heart.svg) transparent no-repeat;
   background-size: cover;
   width: 22px;
   height: 19px;
@@ -13,5 +13,5 @@
 }
 
 .element__like:active {
-  background: url(../../../images/heart_active.png) transparent no-repeat;
+  background: url(../../../images/heart_active.svg) transparent no-repeat;
 }
