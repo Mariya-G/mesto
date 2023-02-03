@@ -4,7 +4,7 @@
   position: absolute;
   top: -40px;
   right: -40px;
-  background: url(../../../images/сlose-btn.png) transparent no-repeat;
+  background: url(../../../images/close-btn.svg) transparent no-repeat;
   background-size: contain;
   cursor: pointer;
   border: none;
