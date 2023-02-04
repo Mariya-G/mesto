@@ -8,32 +8,39 @@ let jobInput = formElement.querySelector('.popup__item_type_job');
 let titleName = document.querySelector('.profile__title');
 let subtitleProfile = document.querySelector('.profile__subtitle');
 
-const toggleOpenPopup = () => {
-  popup.classList.toggle('popup_opened');
-  nameInput.value = titleName.textContent
+function closePopup () {
+  popup.classList.remove('popup_opened');
+}
+function openPopup () {
+  popup.classList.add('popup_opened');
+}
+function handleOpenEditProfilePopup () {
+  nameInput.value = titleName.textContent;
   jobInput.value = subtitleProfile.textContent;
-}
-const handleEditButtonClick = () => {
-  toggleOpenPopup();
-}
-const handleCloseButtonClick = () => {
-  toggleOpenPopup();
-}
-const handleOverlayClick = (event) => {
-  if (event.target === event.currentTarget){
-    toggleOpenPopup();
-  }
-}
 
+  openPopup();
+}
 function formSubmitHandler (evt) {
 	evt.preventDefault();
 
   titleName.textContent = nameInput.value;
   subtitleProfile.textContent = jobInput.value;
-  handleCloseButtonClick();
+  closePopup();
+}
+
+const handleOpenButtonClick = () => {
+ popup.classList.add(openPopup());
+}
+const handleCloseButtonClick = () => {
+  popup.classList.remove(closePopup());
+}
+const handleOverlayClick = (event) => {
+  if (event.target === event.currentTarget) {
+    closePopup();
+  }
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
-editButton.addEventListener('click', handleEditButtonClick);
+editButton.addEventListener('click', handleOpenButtonClick);
 closeButton.addEventListener('click', handleCloseButtonClick);
 popup.addEventListener('click', handleOverlayClick);

@@ -4,6 +4,7 @@
   border: 2px solid #fff;
   background: url(../../../images/plus.svg) transparent no-repeat center center;
   cursor: pointer;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {
@@ -26,5 +27,6 @@
 @media screen and (max-width: 320px) {
   .profile__add-button {
     width: 100%;
+    background: url(../../../images/plus_mobile.svg) transparent no-repeat center center;
   }
 }
