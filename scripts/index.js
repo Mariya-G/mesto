@@ -24,14 +24,15 @@ function formSubmitHandler (evt) {
 
   titleName.textContent = nameInput.value;
   subtitleProfile.textContent = jobInput.value;
+  
   closePopup();
 }
 
 const handleOpenButtonClick = () => {
- popup.classList.add(openPopup());
+  openPopup();
 }
 const handleCloseButtonClick = () => {
-  popup.classList.remove(closePopup());
+  closePopup();
 }
 const handleOverlayClick = (event) => {
   if (event.target === event.currentTarget) {
