@@ -100,7 +100,6 @@ const getAddElement = (item) => {
   const deleteButton = cardElement.querySelector('.element__delete');
   const elementLike = cardElement.querySelector('.element__like');
   
-  
   titleElement.textContent = item.name;
   imageElement.src = item.link;
   imageElement.alt = titleElement.textContent;
