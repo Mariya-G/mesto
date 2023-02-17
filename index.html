@@ -40,7 +40,7 @@
         </div>
       </article>
     </template>
-    <section class="popup">
+    <section class="popup popup_edit">
       <div class="popup__container">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
@@ -57,7 +57,7 @@
         <h2 class="popup__header">Новое место</h2>
         <form name="popup__form-add" class="popup__form popup__form_add" method="post">
           <input name="name" class="popup__item popup__item_type_title" type="text" placeholder="Название" value="" required>
-          <input name="link" class="popup__item popup__item_type_link" type="text" placeholder="Ссылка на картинку" value="" required>
+          <input name="link" class="popup__item popup__item_type_link" type="url" placeholder="Ссылка на картинку" value="" required>
           <button class="popup__button popup__button_add" type="submit">Создать</button>
         </form>
       </div>
