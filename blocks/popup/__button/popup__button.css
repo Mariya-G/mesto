@@ -9,7 +9,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1;
-  margin: 42px auto 37px auto;
+  margin: 13px auto 37px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +25,5 @@
     width: calc(100% - 44px);
     min-height: 46px;
     font-size: 14px;
-    margin: 45px auto 25px auto;
   }
 }

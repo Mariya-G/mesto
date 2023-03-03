@@ -26,14 +26,15 @@ const initialCards = [
 ];
 
 const buttonEditProfile = document.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup');
 const popupEdit = document.querySelector('.popup_edit');
 const buttonCloseEditProfile = popupEdit.querySelector('.popup__close-button');
 const formEditProfile = document.querySelector('.popup__form');
-const nameInput = formEditProfile.querySelector('.popup__item_type_name');
-const jobInput = formEditProfile.querySelector('.popup__item_type_job');
+const nameInput = formEditProfile.querySelector('.popup__input_type_name');
+const jobInput = formEditProfile.querySelector('.popup__input_type_job');
 const titleName = document.querySelector('.profile__title');
 const subtitleProfile = document.querySelector('.profile__subtitle');
+
+
 
 const popupAdd = document.querySelector('.popup_add');
 const buttonAddImage = document.querySelector('.profile__add-button');
@@ -41,6 +42,12 @@ const elementsContainer = document.querySelector('.elements');
 const formElementAdd = document.querySelector('.popup__form_add');
 const elementTemplate = document.querySelector('#element-template');
 const buttonAddClose = popupAdd.querySelector('.popup__close-button_add');
+
+const titleInput = formElementAdd.querySelector('.popup__input_type_title');
+const linkInput = formElementAdd.querySelector('.popup__input_type_link');
+//const inputErrorAdd = formElementAdd.querySelector(`.${allInputElementAdd.id}-error`);
+
+
 
 const popupImage = document.querySelector('.popup_view');
 const popupImageView = popupImage.querySelector('.popup__image');
@@ -62,7 +69,7 @@ function handleOpenEditProfilePopup () {
   openPopup(popupEdit);
 }
 function formSubmitEditProfileHandler (evt) {
-	evt.preventDefault();
+  evt.preventDefault();
 
   titleName.textContent = nameInput.value;
   subtitleProfile.textContent = jobInput.value;
@@ -153,7 +160,21 @@ const handleImageOverlayClick = (event) => {
     closePopup(popupImage);
   }
 }
-
+const keyAddHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(popupAdd);
+  }
+}
+const keyEditHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(popupEdit);
+  }
+}
+const keyImageHandler = (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(popupImage);
+  }
+}
 buttonEditProfile.addEventListener('click', handleOpenEditButtonClick);
 buttonCloseEditProfile.addEventListener('click', handleCloseEditButtonClick);
 formEditProfile.addEventListener('submit', formSubmitEditProfileHandler);
@@ -165,3 +186,7 @@ popupAdd.addEventListener('click', handleAddOverlayClick);
 
 popupImage.addEventListener('click', handleImageOverlayClick);
 buttonCloseView.addEventListener('click', handleCloseImageClick);
+
+document.addEventListener('keydown', keyAddHandler);
+document.addEventListener('keydown', keyEditHandler);
+document.addEventListener('keydown', keyImageHandler);

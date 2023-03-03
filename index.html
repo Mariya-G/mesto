@@ -44,9 +44,11 @@
       <div class="popup__container">
         <button type="button" class="popup__close-button"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
-        <form name="popup__form" class="popup__form" method="post">
-          <input class="popup__item popup__item_type_name" type="text" placeholder="Имя" value="Жак-Ив Кусто" required>
-          <input class="popup__item popup__item_type_job" type="text" placeholder="О себе" value="Исследователь океана" required>
+        <form name="popup__form" class="popup__form" method="post" novalidate>
+          <input id="input-fullName" name="fullName" class="popup__input popup__input_type_name" type="text" placeholder="Имя" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
+          <span id="input-fullName-error" class="popup__input-error"></span>
+          <input id="input-about" name="about" class="popup__input popup__input_type_job" type="text" placeholder="О себе" value="Исследователь океана" required minlength="2" maxlength="200">
+          <span id="input-about-error" class="popup__input-error"></span>
           <button class="popup__button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -55,9 +57,11 @@
       <div class="popup__container">
         <button type="button" class="popup__close-button popup__close-button_add"></button>
         <h2 class="popup__header">Новое место</h2>
-        <form name="popup__form-add" class="popup__form popup__form_add" method="post">
-          <input name="name" class="popup__item popup__item_type_title" type="text" placeholder="Название" value="" required>
-          <input name="link" class="popup__item popup__item_type_link" type="url" placeholder="Ссылка на картинку" value="" required>
+        <form name="popup__form_add" class="popup__form popup__form_add" method="post" novalidate>
+          <input id="input-name" name="name" class="popup__input popup__input_type_title" type="text" placeholder="Название" value="" required minlength="2" maxlength="30">
+          <span id="input-name-error" class="popup__input-error"></span>
+          <input id="input-link" name="link" class="popup__input popup__input_type_link" type="url" placeholder="Ссылка на картинку" value="" required>
+          <span id="input-link-error" class="popup__input-error"></span>
           <button class="popup__button popup__button_add" type="submit">Создать</button>
         </form>
       </div>
@@ -69,6 +73,7 @@
         <p class="popup__name"></p>
       </div>
     </section>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
