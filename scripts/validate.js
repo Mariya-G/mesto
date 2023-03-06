@@ -7,6 +7,17 @@ const formleValidationConfig = {
   errorClass: 'popup__input-error_visible'
 };
 
+const showInputError = (input, errorElement, config) => {
+  input.classList.add(config.inputErrorClass);
+  errorElement.classList.add(config.errorClass);
+  errorElement.textContent = input.validationMessage;
+}
+
+const hideInputErrors = (input, errorElement, config) => {
+  input.classList.remove(config.inputErrorClass);
+  errorElement.classList.remove(config.errorClass);
+  errorElement.textContent = '';
+}
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach(function (form) {
@@ -27,15 +38,10 @@ function handleFormInput(event, config) {
   const input = event.target;
   const inputId = input.id;
   const errorElement = document.querySelector(`#${inputId}-error`);
-  
   if (input.validity.valid){
-    input.classList.remove(config.inputErrorClass);
-    errorElement.classList.remove(config.errorClass);
-    errorElement.textContent = '';
+    hideInputErrors(input, errorElement, config);
   } else {
-    input.classList.add(config.inputErrorClass);
-    errorElement.classList.add(config.errorClass);
-    errorElement.textContent = input.validationMessage;
+    showInputError(input, errorElement, config);
   }
 };
 
@@ -43,7 +49,7 @@ function toggleButton(form, config) {
   const buttonSubmit = form.querySelector(config.submitButtonSelector);
   const isFormValid = form.checkValidity();
   buttonSubmit.disabled = !isFormValid;
-  buttonSubmit.classList.toggle('popup__button_disabled', !isFormValid);
+  buttonSubmit.classList.toggle(config.inactiveButtonClass, !isFormValid);
 };
 
 function addInputListners(form, config) {
