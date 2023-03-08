@@ -18,6 +18,23 @@ const hideInputErrors = (input, errorElement, config) => {
   errorElement.classList.remove(config.errorClass);
   errorElement.textContent = '';
 }
+
+const disableSubmitButton = (button) => {
+  button.setAttribute('disabled', true);
+  button.classList.add('popup__button_disabled');
+};
+
+const removeValidationErrors = (formElementAdd) => {
+  const inputList = Array.from(formElementAdd.querySelectorAll('.popup__input'));
+  inputList.forEach(function (input) {
+    const inputId = input.id;
+    const errorElement = formElementAdd.querySelector(`#${inputId}-error`);
+    input.classList.remove('popup__input_type_error');
+    errorElement.classList.remove('popup__input-error_visible');
+    errorElement.textContent = '';
+  });
+};
+
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
   formList.forEach(function (form) {

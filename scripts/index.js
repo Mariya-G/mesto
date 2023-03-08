@@ -13,6 +13,7 @@ const elementsContainer = document.querySelector('.elements');
 const formElementAdd = document.querySelector('.popup__form_add');
 const elementTemplate = document.querySelector('#element-template');
 const buttonAddClose = popupAdd.querySelector('.popup__close-button_add');
+const buttonSubmitAdd = popupAdd.querySelector('.popup__button_add');
 
 const titleInput = formElementAdd.querySelector('.popup__input_type_title');
 const linkInput = formElementAdd.querySelector('.popup__input_type_link');
@@ -24,10 +25,12 @@ const buttonCloseView = popupImage.querySelector('.popup__close-button_view');
 const cardElement = elementTemplate.querySelector('.element');
 
 const openPopup = (popup) => { 
-  popup.classList.add('popup_opened'); 
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
 } 
 const closePopup = (popup) => { 
-  popup.classList.remove('popup_opened'); 
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc);
 } 
 
 function handleOpenEditProfilePopup () {
@@ -97,38 +100,24 @@ formElementAdd.addEventListener('submit', (evt) => {
 const handleOpenEditButtonClick = () => {
   openPopup(popupEdit);
 }
+
 const handleCloseEditButtonClick = () => {
   closePopup(popupEdit);
 }
+
 const handleOpenImageClick = () => {
   openPopup(popupImage);
 }
+
 const handleCloseImageClick = () => {
   closePopup(popupImage);
 }
 
-function disableButtonForm() {
-  const buttonSubmitAdd = formElementAdd.querySelector('.popup__button');
-  buttonSubmitAdd.setAttribute('disabled', true);
-  buttonSubmitAdd.classList.add('popup__button_disabled');
-};
-
-const resetFormError = () => {
-  const inputList = Array.from(document.querySelectorAll('.popup__input'));
-  inputList.forEach((input) => {
-    const inputId = input.id;
-    const errorElement = document.querySelector(`#${inputId}-error`);
-    input.classList.remove('popup__input_type_error');
-    errorElement.classList.remove('popup__input-error_visible');
-    errorElement.textContent = '';
-  });
-};
-
 const handleAddOpenButtonClick = () => {
   openPopup(popupAdd);
   formElementAdd.reset();
-  resetFormError(formElementAdd);
-  disableButtonForm(false);
+  removeValidationErrors(formElementAdd);
+  disableSubmitButton(buttonSubmitAdd);
 }
 
 const handleAddCloseButtonClick = () => {
@@ -171,5 +160,3 @@ popupAdd.addEventListener('click', handleAddOverlayClick);
 
 popupImage.addEventListener('click', handleImageOverlayClick);
 buttonCloseView.addEventListener('click', handleCloseImageClick);
-
-document.addEventListener('keydown', closeByEsc);
