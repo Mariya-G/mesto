@@ -1,6 +1,7 @@
+import {initialCards, popupImage} from './constants.js';
 import Card from './card.js';
 import FormValidator from './validate.js';
-import {formleValidationConfig} from './validate.js';
+import {formleValidationConfig} from './constants.js';
 
 const elementsContainer = document.querySelector('.elements');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
@@ -19,7 +20,6 @@ const formElementAdd = document.querySelector('.popup__form_add');
 const buttonAddClose = popupAdd.querySelector('.popup__close-button_add');
 const buttonSubmitAdd = popupAdd.querySelector('.popup__button_add');
 
-const popupImage = document.querySelector('.popup_view');
 const buttonCloseView = document.querySelector('.popup__close-button_view');
 
 
@@ -32,13 +32,6 @@ const closePopup = (popup) => {
   document.removeEventListener('keydown', closeByEsc);
 } 
 
-function handleOpenEditProfilePopup () {
-  nameInput.value = titleName.textContent;
-  jobInput.value = subtitleProfile.textContent;
-
-  openPopup(popupEdit);
-}
-
 function formSubmitEditProfileHandler (evt) {
   evt.preventDefault();
 
@@ -49,6 +42,8 @@ function formSubmitEditProfileHandler (evt) {
 }
 
 const handleOpenEditButtonClick = () => {
+  nameInput.value = titleName.textContent;
+  jobInput.value = subtitleProfile.textContent;
   openPopup(popupEdit);
 }
 
@@ -63,7 +58,7 @@ const handleCloseImageClick = () => {
 const handleAddOpenButtonClick = () => {
   openPopup(popupAdd);
   formElementAdd.reset();
-  validAdd.getCheckValidation(formElementAdd, buttonSubmitAdd);
+  validAdd.removeValidationErrors(formElementAdd, buttonSubmitAdd);
 }
 
 const handleAddCloseButtonClick = () => {

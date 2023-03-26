@@ -1,3 +1,4 @@
+import {popupImage, popupImageView, popupNameImage} from './constants.js';
 import {openPopup} from './index.js';
 
 class Card {
@@ -22,17 +23,14 @@ class Card {
     evt.target.classList.toggle('element__like_active');
   }
 
-  _handleDelete = (evt) => {
-    evt.target.closest('.element').remove();
+  _handleDelete = () => {
+    this._element.remove();
     this._element = null;
   };
 
   generateCard = () => {
     this._element = this._getTemplate();
-    const popupImage = document.querySelector('.popup_view');
-    const popupImageView = popupImage.querySelector('.popup__image');
     const titleElement = this._element.querySelector('.element__title');
-    const popupNameImage = popupImage.querySelector('.popup__name');
     const imageElement = this._element.querySelector('.element__image');
     
     titleElement.textContent = this._name;
