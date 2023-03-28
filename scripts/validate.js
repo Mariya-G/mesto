@@ -61,8 +61,6 @@ class FormValidator {
   };
 
   removeValidationErrors(formElement) {
-    this._inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
-  
     this._inputList.forEach((inputElement) => {
       this._hideInputError(formElement, inputElement);
     })
