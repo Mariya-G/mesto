@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./pages/index.css" rel="stylesheet">
     <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
-      <img class="header__logo" alt="Логотип" src="./images/logo.png">
+      <img class="header__logo" alt="Логотип" src="<%=require('./images/logo.png')%>">
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__wrap">
-          <img  class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+          <img  class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
           <div class="profile__info">
             <div class="profile__inner">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -32,7 +31,7 @@
     </footer>
     <template id="element-template">
       <article class="element">
-        <img name="image" class="element__image" src="/" alt="">
+        <img name="name" class="element__image" src="/" alt="">
         <button class="element__delete"></button>
         <div class="element__wrap">
           <h2 class="element__title"></h2>
@@ -42,12 +41,12 @@
     </template>
     <section class="popup popup_edit">
       <div class="popup__container">
-        <button type="button" class="popup__close-button"></button>
+        <button type="button" class="popup__close-button popup__close-button_edit"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
         <form name="popup__form" class="popup__form" method="post" novalidate>
-          <input id="input-fullName" name="fullName" class="popup__input popup__input_type_name" type="text" placeholder="Имя" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
+          <input id="input-fullName" name="username" class="popup__input popup__input_type_name" type="text" placeholder="Имя" value="Жак-Ив Кусто" required minlength="2" maxlength="40">
           <span class="input-fullName-error popup__input-error"></span>
-          <input id="input-about" name="about" class="popup__input popup__input_type_job" type="text" placeholder="О себе" value="Исследователь океана" required minlength="2" maxlength="200">
+          <input id="input-about" name="job" class="popup__input popup__input_type_job" type="text" placeholder="О себе" value="Исследователь океана" required minlength="2" maxlength="200">
           <span class="input-about-error popup__input-error"></span>
           <button class="popup__button" type="submit">Сохранить</button>
         </form>
@@ -73,6 +72,5 @@
         <p class="popup__name"></p>
       </div>
     </section>
-    <script src="./scripts/index.js"  type="module" defer></script>
   </body>
 </html>
