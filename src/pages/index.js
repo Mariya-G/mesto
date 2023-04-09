@@ -3,7 +3,7 @@ import {initialCards, formleValidationConfig, buttonEditProfile, popupEdit,
 buttonCloseEditProfile, nameInput, jobInput, titleName, subtitleProfile, 
 popupAdd, buttonAddImage, buttonAddClose, buttonCloseView
 } from '../utils/constants.js';
-import Card from '../components/card.js';
+import Card from '../components/Сard.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
@@ -44,14 +44,14 @@ const handleOpenEditButtonClick = () => {
 const cardsList = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card(item, '#element-template', handleCardClick);
-    const cardElement = card.generateCard(); 
-    cardsList.addItem(cardElement);
+    const card = createCard(item, '#element-template', handleCardClick);
+    //const cardElement = card.generateCard(); 
+    cardsList.addItem(card);
   },
 }, '.elements');
 cardsList.renderItems();
 
-const createCard = (data, templateSelector) => {
+function createCard (data, templateSelector) {
   const card = new Card(data, templateSelector, handleCardClick);
   return card.generateCard();
 };
