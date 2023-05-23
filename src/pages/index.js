@@ -157,7 +157,6 @@ const createCard = (data) => {
     },
     handleDeleteIconClick: (cardId) => {
       deleteCardPopup.open();
-      console.log('клик');
       deleteCardPopup.submitCallback(() => {
         api.deleteCard(cardId)
           .then(() => {
