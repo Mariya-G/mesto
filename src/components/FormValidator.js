@@ -1,4 +1,4 @@
-export default class FormValidator {
+class FormValidator {
   constructor(formleValidationConfig, form) {
     this._formSelector = formleValidationConfig.formSelector;
     this._inputSelector = formleValidationConfig.inputSelector;
@@ -72,4 +72,4 @@ export default class FormValidator {
     this.removeValidationErrors(this._form);
   };
 }
- FormValidator;
+export default FormValidator;
