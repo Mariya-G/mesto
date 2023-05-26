@@ -79,7 +79,7 @@ export default class Card {
     this._likeButton.classList.toggle('element__like_active');
   }
 
-  // проверяем владельца карточки и убираем кнопку Delete
+  //проверяем владельца карточки и убираем кнопку Delete
   _hasDeleteBtn() {
     if (this._userId !== this._cardOwnerId) {
       this._deleteButton.remove();
