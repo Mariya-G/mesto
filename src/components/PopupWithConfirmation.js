@@ -12,7 +12,7 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   // удаление карточки 
-setEventListeners() {
+  setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('click', (event) => {
       event.preventDefault();
