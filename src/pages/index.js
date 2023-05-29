@@ -70,7 +70,7 @@ addCardPopup.setEventListeners();
 
 // обработчик открытия попапа карточки
 buttonAddImage.addEventListener('click', () => {
-  validAdd.enableValidation();
+  validAdd.removeValidationErrors();
   addCardPopup.open();
 })
 
@@ -127,7 +127,7 @@ const editAvatarPopup = new PopupWithForm({
     editAvatarPopup.loading(true);
     api.editAvatar(data)
       .then((data) => {
-        avatar.src = data.avatar;
+        userInfo.setUserAvatar(data);
         editAvatarPopup.close();
       })
       .catch((err) => {
