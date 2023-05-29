@@ -12,9 +12,9 @@ import Api from '../components/Api.js';
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-68',
   headers: {
-    Authorization: '940e7328-d290-4330-b219-7aff84540300',
+    Authorization: '84ea1e46-d5a8-4474-bc0b-e051ea435c21',
     'Content-Type': 'application/json'
   }
 });
